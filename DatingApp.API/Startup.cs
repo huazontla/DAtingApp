@@ -57,13 +57,23 @@ namespace DatingApp.API
 
             // app.UseHttpsRedirection();
 
-            app.UseRouting();
+            // app.UseRouting();
 
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyOrigin().AllowAnyMethod());
+            // app.UseCors(x => x.AllowAnyOrigin().AllowAnyOrigin().AllowAnyMethod());
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            // app.UseAuthentication();
+            // app.UseAuthorization();
 
+
+                app.UseRouting();
+            
+                app.UseCors(x => x
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            
+                app.UseAuthentication();
+                app.UseAuthorization();
 
 
             app.UseEndpoints(endpoints =>
