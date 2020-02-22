@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       console.log('Logueado correctamente');
     }, error => {
-      console.log('No se ha podido hacer login');
+      console.log(error);
     });
   }
 

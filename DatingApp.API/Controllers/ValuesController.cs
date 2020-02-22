@@ -23,10 +23,11 @@ namespace DatingApp.API.Controllers
         // GET api/values
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> GetValues()
+        public async Task<ActionResult> GetValues() 
         {
-            var values = await _context.Values.ToListAsync();
-            return Ok(values);
+             var values = await _context.Values.ToListAsync();
+             return Ok(values);
+
         }
 
         // GET api/values/5

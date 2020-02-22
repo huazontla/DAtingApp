@@ -1,5 +1,6 @@
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
+using RestSharp;
 
 namespace DatingApp.API.Data
 {
@@ -7,6 +8,16 @@ namespace DatingApp.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
 
+
+        public void TestMethod()
+        {
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+
+            var request = new RestRequest("/posts", Method.GET);
+
+            var content = client.Execute(request).Content;
+
+        }
 
         public DbSet<Value> Values { get; set; }
 

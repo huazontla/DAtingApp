@@ -2,6 +2,8 @@ using System;
 using System.Threading.Tasks;
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
+using RestSharp;
+using RestSharp.Authenticators;
 
 namespace DatingApp.API.Data
 {
@@ -76,6 +78,17 @@ namespace DatingApp.API.Data
                 return true;
             
             return false;
+
+        }
+
+
+        public void TestMethod()
+        {
+            var client = new RestClient("https://jsonplaceholder.typicode.com");
+
+            var request = new RestRequest("/posts", Method.GET);
+
+            var content = client.Execute(request).Content;
 
         }
     }
